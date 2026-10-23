@@ -9,58 +9,28 @@ class Nodo{
     private:
     T dato;
     Nodo<T> *siguiente;
+    
     public:
     Nodo(T dato){
-        this->dato=dato;
-        this->siguiente=nullptr;
+        this->dato = dato;
+        this->siguiente = nullptr;
     }
 
     T getDato(){
         return dato;
     }
+    
     Nodo<T>* getSiguiente(){
         return siguiente;
     }
-    void setDato(T dato){
-        this->dato=dato;
-        void setSiguiente(Nodo<T>* nodo){
-            this->siguiente=nodo;
-        }
-    }
-    template<typename T>
-    class Cola{
-        private:
-        Nodo<T>* frente;
-        Nodo<T>* final;
-        public:
-        Cola(){
-        frente=nullptr;
-        final=nullptr;
-        }
-     Nodo<T>* getFrente() {
-         return frente; }
-    Nodo<T>* getFinal()  { 
-        return final; }
-
     
-    void setFrente(Nodo<T>* nodo) {
-         frente = nodo; }
-    void setFinal(Nodo<T>* nodo)  { 
-        final = nodo; } 
-        
+    void setDato(T dato){
+        this->dato = dato;
     }
-    //Buscar
-    Nodo<T>*actual=frente;
-
-    while(actual!=nullptr){
-        if(actual->getDato().getCedula()==cedula){
-             cout << "Encontrado: " << actual->getDato().getNombre() << endl;
-            return actual;
-        }
-    actual=actual->getSiguiente();
+    
+    void setSiguiente(Nodo<T>* nodo){
+        this->siguiente = nodo;
     }
-     cout << "No encontrado" << endl;
-    return nullptr;
 };
 
 template <typename T>
@@ -79,6 +49,7 @@ public:
         return true;
     }
 };
+
 template <typename T>
 class Imprimir {
 public:
