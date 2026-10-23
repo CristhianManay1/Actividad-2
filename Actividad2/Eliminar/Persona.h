@@ -1,29 +1,48 @@
 #ifndef PERSONA_H
 #define PERSONA_H
 
+#include <iostream>
 #include <string>
+
 using namespace std;
 
-class Persona {
-private:
-    string cedula;
+class Persona{
+    private:
     string nombre;
     string apellido;
+    string cedula;
 
-public:
-    Persona() : cedula(""), nombre(""), apellido("") {}
+    public:
+    Persona();
+    Persona(string nombre, string apellido, string cedula){
+        this->cedula = cedula;
+        this->nombre = nombre;
+        this->apellido = apellido;
+    }
 
-    Persona(string cedula, string nombre, string apellido)
-        : cedula(cedula), nombre(nombre), apellido(apellido) {}
+    string getCedula(){ 
+        return cedula;
+    }
 
-    string getCedula() const { return cedula; }
-    void setCedula(string cedula) { this->cedula = cedula; }
+    string getNombre(){
+        return nombre;
+    }
 
-    string getNombre() const { return nombre; }
-    void setNombre(string nombre) { this->nombre = nombre; }
+    string getApellido(){
+        return apellido;
+    }
 
-    string getApellido() const { return apellido; }
-    void setApellido(string apellido) { this->apellido = apellido; }
+    void setCedula(string cedula){
+        this->cedula = cedula;
+    }
+
+    void setNombre(string nombre){
+        this->nombre = nombre;
+    }
+
+    void setApellido(string apellido){
+        this->apellido = apellido;
+    }
 };
 
 #endif
