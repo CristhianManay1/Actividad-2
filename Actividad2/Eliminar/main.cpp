@@ -1,28 +1,45 @@
 #include <iostream>
-#include "Persona.h"
-#include "Nodo.h"
+#include <string>
+#include "Persona.h" 
+#include "nodo.h"
+
 using namespace std;
 
 int main() {
-    Nodo<Persona>* frente = nullptr;
-    Nodo<Persona>* final = nullptr;
+    Nodo<Persona>* nodo1 = new Nodo<Persona>(Persona("1723456789", "Carlos", "Mendez"));
+    Nodo<Persona>* nodo2 = new Nodo<Persona>(Persona("1798765432", "Ana", "Loja"));
+    Nodo<Persona>* nodo3 = new Nodo<Persona>(Persona("1711223344", "Luis", "Perez"));
 
-    
-    Eliminar<Persona> opEliminar;
-    Imprimir<Persona> opImprimir;
+    nodo1->setSiguiente(nodo2);
+    nodo2->setSiguiente(nodo3);
 
-   
-    cout << "--- Elementos en la cola ---" << endl;
-    opImprimir.imprimir(frente);
+    Nodo<Persona>* frente = nodo1;
+    Nodo<Persona>* final = nodo3;
 
-    
+    Eliminar<Persona> operacionEliminar;
+    Imprimir<Persona> operacionImprimir;
 
-    opEliminar.eliminar(frente, final);
-    cout << "\n--- Despues de eliminar el frente ---" << endl;
-    opImprimir.imprimir(frente);
+    int opcion = 0;
+    while (opcion != 3) {
+        cout << "\n--- GESTION DE COLA ---" << endl;
+        cout << "1. Imprimir elementos" << endl;
+        cout << "2. Eliminar frente" << endl;
+        cout << "3. Salir" << endl;
+        cout << "Seleccione una opcion: ";
+        cin >> opcion;
 
-    while (frente != nullptr) {
-        opEliminar.eliminar(frente, final);
+        if (opcion == 1) {
+            cout << "\n--- Estado actual de la cola ---" << endl;
+            operacionImprimir.imprimir(frente);
+        } 
+        else if (opcion == 2) {
+            bool exito = operacionEliminar.eliminar(frente, final);
+            if (exito) {
+                cout << "-> Nodo frontal eliminado correctamente." << endl;
+            } else {
+                cout << "-> Operacion fallida: La cola ya esta vacia." << endl;
+            }
+        }
     }
 
     return 0;
