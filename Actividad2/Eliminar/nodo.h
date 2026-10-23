@@ -14,11 +14,19 @@ private:
 public:
     Nodo(T dato) : dato(dato), siguiente(nullptr) {}
 
-    T getDato() const { return dato; }
-    void setDato(T dato) { this->dato = dato; }
+    T getDato() const { 
+        return dato;
+     }
+    void setDato(T dato) { 
+        this->dato = dato; 
+    }
 
-    Nodo<T>* getSiguiente() const { return siguiente; }
-    void setSiguiente(Nodo<T>* siguiente) { this->siguiente = siguiente; }
+    Nodo<T>* getSiguiente() const { 
+        return siguiente; 
+    }
+    void setSiguiente(Nodo<T>* siguiente) { 
+        this->siguiente = siguiente; 
+    }
 };
 
 template <typename T>
